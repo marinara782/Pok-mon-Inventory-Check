@@ -1,9 +1,17 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./SparksBundle.css"
 import SparkBundle from './SparksBundle.png'
 
 function SparksBundle(){
-    const [inventorySparkBundle, setInventorySparkBundle] = useState(0);
+    const [inventorySparkBundle, setInventorySparkBundle] = useState(() => {
+        const saved = localStorage.getItem("inventorySparkBundle");
+        return saved != null ? Number(saved) : 0;
+    });
+
+    // Save to local storage whenever it changes
+    useEffect(() => {
+        localStorage.setItem("inventorySparkBundle", inventorySparkBundle);
+    }, [inventorySparkBundle]);
 
     // Sparks Bundle
     const increaseSparkBundle = () => {

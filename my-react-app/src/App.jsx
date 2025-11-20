@@ -3,6 +3,7 @@ import Booster from './components/Booster/Booster.jsx'
 import Bundle from './components/Bundle/Bundle.jsx'
 import SparksETB from './components/SparksETB/SparksETB.jsx'
 import SparksBundle from './components/SparksBundle/SparksBundle.jsx'
+import Journey from './components/Journey/Journey.jsx'
 function App() {
   return(
     <>
@@ -11,6 +12,7 @@ function App() {
     <Bundle></Bundle>
     <SparksETB></SparksETB>
     <SparksBundle></SparksBundle>
+    <Journey></Journey>
     </>
   )
 }

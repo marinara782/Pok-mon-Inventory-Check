@@ -1,9 +1,16 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./Booster.css"
 import booster from './FlamesBoost.png'
 
 function Booster(){
-    const [inventoryBooster, setInventoryBooster] = useState(0);
+    const [inventoryBooster, setInventoryBooster] = useState(() => {
+        const saved = localStorage.getItem("inventoryBooster");
+        return saved !== null ? Number(saved) : 0;
+    });
+
+    useEffect(() => {
+        localStorage.setItem("inventoryBooster", inventoryBooster);
+    }, [inventoryBooster]);
 
     //Booster Inventory
     const increaseBooster = () => {

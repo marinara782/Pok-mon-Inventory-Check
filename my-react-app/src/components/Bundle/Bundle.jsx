@@ -1,9 +1,16 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./Bundle.css"
 import bundle from './FlamesBundle.png'
 
 function Bundle(){
-    const [inventoryBundle, setInventoryBundle] = useState(0);
+    const [inventoryBundle, setInventoryBundle] = useState(() => {
+        const saved = localStorage.getItem("inventoryBundle");
+        return saved !== null ? Number(saved) : 0;
+    });
+
+    useEffect(() => {
+        localStorage.setItem("inventoryBundle", inventoryBundle);
+    },[inventoryBundle]);
 
     // Bundle Inventory
     const increaseBundle = () => {

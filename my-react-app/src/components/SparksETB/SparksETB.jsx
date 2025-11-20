@@ -1,9 +1,16 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./Sparks.css"
 import sparkETB from './SparksETB.png'
 
 function SparksETB(){
-    const [inventorySparkETB, setInventorySparkETB] = useState(0);
+    const [inventorySparkETB, setInventorySparkETB] = useState(() => {
+        const saved = localStorage.getItem("inventorySparkETB");
+        return saved !== null ? Number(saved) : 0;
+    });
+
+    useEffect(() => {
+        localStorage.setItem("inventorySparkETB", inventorySparkETB);
+    },[inventorySparkETB]);
 
     // Surging Inventory
     const increaseSparkETB = () => {

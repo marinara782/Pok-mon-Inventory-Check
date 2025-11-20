@@ -1,8 +1,15 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./ETB.css";
 import etb from './FlamesETB.png';
 function ETB(){
-    const [inventoryETB, setInventoryETB] = useState(0);
+    const [inventoryETB, setInventoryETB] = useState(() => {
+        const saved = localStorage.getItem("inventoryETB");
+        return saved != null ? Number(saved) : 0;
+    });
+
+    useEffect(() => {
+        localStorage.setItem("inventoryETB", inventoryETB);
+    }, [inventoryETB]);
 
 
     const increaseETB = () => {
