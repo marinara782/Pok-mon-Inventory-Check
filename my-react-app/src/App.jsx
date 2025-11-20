@@ -8,6 +8,7 @@ import Scarlet from './components/Scarlet/Scarlet.jsx'
 import Prismatic from './components/Prismatic/Prismatic.jsx'
 import Crabominable from './components/CardCrab/Crabominable.jsx'
 import Slaking from './components/CardSlaking/Slaking.jsx'
+import Clawitzer from './components/CardClawitzer/Clawitzer.jsx'
 function App() {
   return(
     <>
@@ -22,6 +23,7 @@ function App() {
 
     <Crabominable></Crabominable>
     <Slaking></Slaking>
+    <Clawitzer></Clawitzer>
     </>
   )
 }
